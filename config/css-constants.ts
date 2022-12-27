@@ -1,0 +1,35 @@
+import metrics from "./metrics";
+
+const cssConstants = {
+    CONTAINER_PADDING: 10,
+    HEADER_HEIGHT: 40,
+    BASE_BORDER_RADIUS: 6,
+    INPUT_HEIGHT: 32,
+    BUTTON_HEIGHT: 40,
+    FLAT_CARD_HEIGHT: 60,
+    SMALL_BUTTON_HEIGHT: 24,
+    INPUT_BORDER_RADIUS: 8,
+    DEFAULT_MARGIN: 10,
+    DEFAULT_ANIMATION_DURATION: 300,
+    ALERT_BORDER_RADIUS: 20,
+    SMALL_INPUT_WIDTH: 200,
+
+    // Fonts
+    BASE_FONT_SIZE: 14,
+    SMALL_FONT_SIZE: 12,
+    MEDIUM_FONT_SIZE: 16,
+    LARGE_FONT_SIZE: 24,
+    EXTRA_LARGE_FONT_SIZE: 28,
+    HEADER_FONT_SIZE: 18,
+    INPUT_FONT_SIZE: 16,
+    ICON_SIZE: 20,
+    EXTRA_SMALL_FONT_SIZE: 10,
+
+    // Dimensions
+    GUTTER: metrics.scale(15),
+    HEADER_CIRCLE_SIZE: metrics.scale(64),
+    STATUS_CIRCLE_SIZE: 50,
+
+}
+
+export default cssConstants;
