@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { View, Text, Alert, StyleSheet, Image } from 'react-native';
+import colors from '../config/colors';
 import cssConstants from '../config/css-constants';
 
 
@@ -25,7 +26,8 @@ const styles = StyleSheet.create({
     text: {
         fontWeight: '700',
         fontSize: cssConstants.MEDIUM_FONT_SIZE,
-        paddingLeft: cssConstants.CONTAINER_PADDING
+        paddingLeft: cssConstants.CONTAINER_PADDING,
+        color: colors.primaryTextColor
     }
 });
 

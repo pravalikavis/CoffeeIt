@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { View, Text, Image, StyleSheet } from 'react-native';
+import colors from '../config/colors';
 import cssConstants from '../config/css-constants';
+import SubHeader from '../shared/sub-header';
 
 
 
@@ -8,15 +10,15 @@ function NfcScreen() {
 
     return (
         <View style={styles.container}>
-            <View>
-                <Text>
-                    Tap the machine to start
-                </Text>
-            </View>
-            <Image source={require('../assets/coffee-mac.png')} />
-            <Image source={require('../assets/swipe-card.png')} />
+            <SubHeader text={'Tab the machine to start'}></SubHeader>
 
-            <Text>
+            <View style={styles.imageContainer}>
+                <Image source={require('../assets/coffee-mac.png')} />
+                <Image style={styles.overlay} source={require('../assets/swipe-card.png')} />
+            </View>
+
+
+            <Text style={styles.subText}>
                 How does this work
             </Text>
         </View>
@@ -27,15 +29,24 @@ export default NfcScreen;
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: 'white',
+        backgroundColor: colors.primaryBackgroundColor,
         display: 'flex',
-
+        height: '100%'
     },
     subText: {
-        fontWeight: '500'
+        fontWeight: '500',
+        textDecorationLine: 'underline',
+        marginLeft: cssConstants.DEFAULT_MARGIN,
+        color: colors.primaryTextColor
     },
-    subView:{
-        padding:10
+    imageContainer: {
+        marginTop: 100,
+        marginBottom: cssConstants.DEFAULT_MARGIN
+    },
+    overlay: {
+        position: 'absolute',
+        right: 0,
+        // backgroundColor: colors.backgroundColor
     }
 });
 
