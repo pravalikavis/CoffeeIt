@@ -1,27 +1,40 @@
 import * as React from 'react';
-import { View, Text, Image, StyleSheet } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import colors from '../config/colors';
 import cssConstants from '../config/css-constants';
 import SubHeader from '../shared/sub-header';
+import { useSelector } from 'react-redux';
+import { setCoffeeMachine } from '../redux/actions';
+import store from '../redux/store';
 
 
 
-function NfcScreen() {
+function NfcScreen({ navigation }) {
+    const coffeeMachine = useSelector((state: any) => state.coffeeMachine)
+
+    const setCoffeeMachineName = () => {
+        store.dispatch(setCoffeeMachine('Lex'))
+    }
+
+    React.useEffect(() => {
+        navigation.navigate("")
+    })
 
     return (
-        <View style={styles.container}>
-            <SubHeader text={'Tab the machine to start'}></SubHeader>
+        <TouchableWithoutFeedback onPress={() => setCoffeeMachineName()}>
+            <View style={styles.container}>
+                <SubHeader text={'Tab the machine to start'}></SubHeader>
+                <View style={styles.imageContainer}>
+                    <Image source={require('../assets/coffee-mac.png')} />
+                    <Image style={styles.overlay} source={require('../assets/swipe-card.png')} />
+                </View>
 
-            <View style={styles.imageContainer}>
-                <Image source={require('../assets/coffee-mac.png')} />
-                <Image style={styles.overlay} source={require('../assets/swipe-card.png')} />
+
+                <Text style={styles.subText}>
+                    How does this work
+                </Text>
             </View>
-
-
-            <Text style={styles.subText}>
-                How does this work
-            </Text>
-        </View>
+        </TouchableWithoutFeedback>
     );
 }
 
