@@ -13,6 +13,7 @@ const cssConstants = {
     DEFAULT_ANIMATION_DURATION: 300,
     ALERT_BORDER_RADIUS: 20,
     SMALL_INPUT_WIDTH: 200,
+    BASE_BORDER_WIDTH: 2,
 
     // Fonts
     BASE_FONT_SIZE: 14,

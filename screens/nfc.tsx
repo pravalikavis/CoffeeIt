@@ -6,6 +6,7 @@ import SubHeader from '../shared/sub-header';
 import { useSelector } from 'react-redux';
 import { setCoffeeMachine } from '../redux/actions';
 import store from '../redux/store';
+import screens from '../Navigation/screens';
 
 
 
@@ -13,12 +14,17 @@ function NfcScreen({ navigation }) {
     const coffeeMachine = useSelector((state: any) => state.coffeeMachine)
 
     const setCoffeeMachineName = () => {
-        store.dispatch(setCoffeeMachine('Lex'))
+        store.dispatch(setCoffeeMachine('Lex'));
+        navigateToNextScreen();
     }
 
     React.useEffect(() => {
-        navigation.navigate("")
+        navigateToNextScreen();
     })
+
+    const navigateToNextScreen = () => {
+        coffeeMachine && navigation.navigate(screens.STYLE)
+    }
 
     return (
         <TouchableWithoutFeedback onPress={() => setCoffeeMachineName()}>

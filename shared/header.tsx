@@ -4,12 +4,12 @@ import colors from '../config/colors';
 import cssConstants from '../config/css-constants';
 
 
-export default function Header(props: { children: string, goBack: boolean }) {
+export default function Header(props: { children: string }) {
 
 
     return (
         <View style={styles.container}>
-            {props.goBack && <Image source={require('../assets/chevron-left.png')}></Image>}
+            {/* {props.goBack && <Image source={require('../assets/chevron-left.png')}></Image>} */}
             <Text style={styles.text}>{(props as any)?.children}</Text>
         </View>
     );

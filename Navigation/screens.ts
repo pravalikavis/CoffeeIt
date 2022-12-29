@@ -1,5 +1,8 @@
 const screens = {
-    NFC: "NFC"
+    NFC: "NFC",
+    STYLE: "STYLE",
+    SIZE: "SIZE",
+    EXTRA: "EXTRA"
 }
 
 export default screens;
