@@ -9,6 +9,7 @@ import StyleScreen from '../screens/style-screen';
 import { useSelector } from 'react-redux';
 import SizeScreen from '../screens/size-screen';
 import ExtraScreen from '../screens/extra';
+import CheckoutScreen from '../screens/checkout';
 
 
 const Stack = createNativeStackNavigator();
@@ -40,6 +41,13 @@ function MainNavigator() {
                         headerTintColor: 'black'
                     }} />
                 <Stack.Screen name={screens.EXTRA} component={ExtraScreen}
+                    options={{
+                        title: "Brew with " + coffeeMachine,
+                        headerTitle: Header,
+                        headerShadowVisible: false,
+                        headerTintColor: 'black'
+                    }} />
+                <Stack.Screen name={screens.CHECKOUT} component={CheckoutScreen}
                     options={{
                         title: "Brew with " + coffeeMachine,
                         headerTitle: Header,

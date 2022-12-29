@@ -3,7 +3,7 @@ import metrics from "./metrics";
 const cssConstants = {
     CONTAINER_PADDING: 10,
     HEADER_HEIGHT: 40,
-    BASE_BORDER_RADIUS: 6,
+    BASE_BORDER_RADIUS: 4,
     INPUT_HEIGHT: 32,
     BUTTON_HEIGHT: 40,
     FLAT_CARD_HEIGHT: 60,

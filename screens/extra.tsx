@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { View, StyleSheet, FlatList, Text, Image, TouchableHighlight, TouchableOpacity } from "react-native";
 import colors from "../config/colors";
 import SubHeader from '../shared/sub-header';
@@ -5,22 +6,28 @@ import data from '../data/data';
 import { useEffect, useState } from "react";
 import cssConstants from "../config/css-constants";
 import store from "../redux/store";
-import { setExtra, setSize } from "../redux/actions";
+import { setExtra } from "../redux/actions";
 import screens from "../Navigation/screens";
+import { useSelector } from 'react-redux';
 
-export default function ExtraScreen({ navigation }) {
+export default function ExtraScreen({ navigation, route }) {
 
     const [extra, setExtraData] = useState(Array(data.extras.length).fill(undefined))
+    const extraSavedData = useSelector((data: any) => data.extra)
 
     useEffect(() => {
-        store.dispatch(setExtra(undefined));
+        if (route && route.params && route.params.skipScreen==true) {
+            if (extraSavedData)
+                navigation.navigate(screens.CHECKOUT)
+        }
     }, [])
 
     useEffect(() => {
         if (extra.every(data => data)) {
-            navigation.navigate(screens.NFC)
+            store.dispatch(setExtra(extra))
+            navigation.navigate(screens.CHECKOUT)
         }
-    })
+    },extra)
 
     const onSubSelectionSelected = (index: number, id: any) => {
         const extraData = [...extra];
@@ -49,8 +56,8 @@ export default function ExtraScreen({ navigation }) {
                     </View>
                     {
                         item.subselections && item.subselections.map(subSection => (
-                            <TouchableOpacity onPress={() => onSubSelectionSelected(index, subSection._id)}>
-                                <View style={styles.subSectionCard} key={subSection._id}>
+                            <TouchableOpacity onPress={() => onSubSelectionSelected(index, subSection._id)} key={subSection._id}>
+                                <View style={styles.subSectionCard} >
                                     <Text style={styles.cardTitle}>{subSection.name}</Text>
                                     {extra[index] == subSection._id
                                         ? <Image style={styles.icon} source={require('../assets/radio-button-checked.png')} />
@@ -70,7 +77,7 @@ export default function ExtraScreen({ navigation }) {
     return (
         <View style={styles.container}>
 
-            <SubHeader text={'Select your size'}></SubHeader>
+            <SubHeader text={"Select your extra's"}></SubHeader>
             <FlatList data={data.extras} renderItem={Card} keyExtractor={keyExtractorFn} />
 
         </View>
@@ -96,7 +103,8 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         flexDirection: 'row',
         borderBottomColor: colors.secondaryTextColor,
-        borderBottomWidth: cssConstants.BASE_BORDER_WIDTH
+        borderBottomWidth: cssConstants.BASE_BORDER_WIDTH,
+
     },
     cardImage: {
         width: 45,
@@ -111,6 +119,7 @@ const styles = StyleSheet.create({
     expandedCard: {
         backgroundColor: colors.secondaryBgColor,
         paddingHorizontal: cssConstants.CONTAINER_PADDING * 2,
+        borderRadius: cssConstants.BASE_BORDER_RADIUS
     },
     subSectionCard: {
         backgroundColor: colors.cardBgColor,

@@ -3,9 +3,9 @@ import { createSlice, configureStore } from '@reduxjs/toolkit'
 const counterSlice = createSlice({
     name: 'counter',
     initialState: {
-        coffeeMachine: '',
-        style: '',
-        size: '',
+        coffeeMachine: undefined,
+        style: undefined,
+        size: undefined,
         extra: undefined
     },
     reducers: {
@@ -20,11 +20,11 @@ const counterSlice = createSlice({
                 ...state,
                 style: action.payload
             }
-        },
+        }, 
         setSize: (state, action) => {
             return {
                 ...state,
-                style: action.payload
+                size: action.payload
             }
         },
         setExtra: (state, action) => {

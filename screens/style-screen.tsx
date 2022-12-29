@@ -12,7 +12,7 @@ export default function StyleScreen({ navigation }) {
 
 
     useEffect(() => {
-        store.dispatch(setStyle(''));
+        store.dispatch(setStyle(undefined));
     }, [])
 
     const onClick = (value) => {
@@ -59,6 +59,7 @@ const styles = StyleSheet.create({
     },
     cardDesign: {
         backgroundColor: colors.secondaryBgColor,
+        borderRadius: cssConstants.BASE_BORDER_RADIUS,
         height: 94,
         display: 'flex',
         alignItems: 'center',

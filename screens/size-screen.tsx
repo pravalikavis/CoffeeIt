@@ -8,16 +8,16 @@ import store from "../redux/store";
 import { setSize } from "../redux/actions";
 import screens from "../Navigation/screens";
 
-export default function SizeScreen({ navigation }) {
+export default function SizeScreen({ navigation, route }) {
 
 
     useEffect(() => {
-        store.dispatch(setSize(''));
+        store.dispatch(setSize(undefined));
     }, [])
 
     const onClick = (value) => {
         store.dispatch(setSize(value));
-        navigation.navigate(screens.EXTRA)
+        navigation.navigate(screens.EXTRA, { skipScreen: route?.params?.reRouteFromCheckout  })
     }
 
     const Card = ({ item }) => {
@@ -63,7 +63,8 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'row',
-        paddingHorizontal: cssConstants.CONTAINER_PADDING
+        paddingHorizontal: cssConstants.CONTAINER_PADDING,
+        borderRadius: cssConstants.BASE_BORDER_RADIUS
     },
     cardImage: {
         width: 60,

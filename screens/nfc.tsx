@@ -32,6 +32,7 @@ function NfcScreen({ navigation }) {
                 <SubHeader text={'Tab the machine to start'}></SubHeader>
                 <View style={styles.imageContainer}>
                     <Image source={require('../assets/coffee-mac.png')} />
+                    <Image style={styles.overlay} source={require('../assets/rectangle-bg.png')} />
                     <Image style={styles.overlay} source={require('../assets/swipe-card.png')} />
                 </View>
 
@@ -64,7 +65,7 @@ const styles = StyleSheet.create({
     },
     overlay: {
         position: 'absolute',
-        right: 0,
+        right: 10,
         // backgroundColor: colors.backgroundColor
     }
 });
