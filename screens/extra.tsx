@@ -23,23 +23,31 @@ export default function ExtraScreen({ navigation, route }) {
     const extraSavedData = useSelector((data: any) => data.extra)
 
     useEffect(() => {
-        if (route && route.params && route.params.skipScreen==true) {
+        if (route && route.params && route.params.skipScreen == true) {
             if (extraSavedData)
                 navigation.navigate(screens.CHECKOUT)
         }
     }, [])
 
     useEffect(() => {
+        navigateToNextScreen();
+    }, extra)
+
+    const navigateToNextScreen = () => {
         if (extra.every(data => data)) {
             store.dispatch(setExtra(extra))
             navigation.navigate(screens.CHECKOUT)
         }
-    },extra)
+    }
 
     const onSubSelectionSelected = (index: number, id: any) => {
-        const extraData = [...extra];
-        extraData[index] = id;
-        setExtraData(extraData)
+        if (extra[index] == id) {
+            navigateToNextScreen();
+        }else{
+            const extraData = [...extra];
+            extraData[index] = id;
+            setExtraData(extraData)
+        }
     }
 
 
