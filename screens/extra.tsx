@@ -10,6 +10,13 @@ import { setExtra } from "../redux/actions";
 import screens from "../Navigation/screens";
 import { useSelector } from 'react-redux';
 
+/**
+ * Renders extra's screen to customize things like sugar and type of milk
+ *
+ * @export
+ * @param {*} { navigation, route }
+ * @returns
+ */
 export default function ExtraScreen({ navigation, route }) {
 
     const [extra, setExtraData] = useState(Array(data.extras.length).fill(undefined))

@@ -8,6 +8,13 @@ import store from "../redux/store";
 import { setStyle } from "../redux/actions";
 import screens from "../Navigation/screens";
 
+/**
+ * Renders style of coffee
+ *
+ * @export
+ * @param {*} { navigation }
+ * @returns
+ */
 export default function StyleScreen({ navigation }) {
 
 

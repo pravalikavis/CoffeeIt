@@ -7,7 +7,13 @@ import data from '../data/data';
 import { useSelector } from 'react-redux';
 import screens from '../Navigation/screens';
 
-
+/**
+ * Renders checkout screen that displays the selected coffee along with its customization
+ *
+ * @export
+ * @param {*} { navigation }
+ * @returns
+ */
 export default function CheckoutScreen({ navigation }) {
 
     const coffeeSavedData = useSelector((state: any) => state)

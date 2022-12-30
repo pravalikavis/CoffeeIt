@@ -9,7 +9,14 @@ import store from '../redux/store';
 import screens from '../Navigation/screens';
 
 
-
+/**
+ * Renders NFC screen to get details about the screen
+ * ! As NFC is not integrated, when user taps on the screen,
+ *  app redirects to the next screen with a default coffee machine
+ *
+ * @param {*} { navigation }
+ * @returns
+ */
 function NfcScreen({ navigation }) {
     const coffeeMachine = useSelector((state: any) => state.coffeeMachine)
 

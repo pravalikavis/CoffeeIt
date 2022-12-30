@@ -8,6 +8,13 @@ import store from "../redux/store";
 import { setSize } from "../redux/actions";
 import screens from "../Navigation/screens";
 
+/**
+ * Renders different sizes of the coffee which lets user to customize the coffee
+ *
+ * @export
+ * @param {*} { navigation, route }
+ * @returns
+ */
 export default function SizeScreen({ navigation, route }) {
 
 

@@ -3,7 +3,13 @@ import { View, Text, Alert, StyleSheet, Image } from 'react-native';
 import colors from '../config/colors';
 import cssConstants from '../config/css-constants';
 
-
+/**
+ * A shared component that can be passed to navigation for rendering a header
+ *
+ * @export
+ * @param {{ children: string }} props
+ * @returns
+ */
 export default function Header(props: { children: string }) {
 
 
